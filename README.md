@@ -1,5 +1,4 @@
 # ![Alt text](/readme/banner.png)
-# Week 1: Introduction to Flutter
 
 ## Overview
 
