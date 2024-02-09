@@ -49,7 +49,7 @@ Assuming you followed the selection project, your `flutter doctor` should be all
 
 - Open Android Studio
 - Click on `More Actions` shown below:
-  ![alt text](image.png)
+  ![alt text](/readme/image01.png)
 - Click on `Virtual Device Manager`
 - Click on `Create Virtual Device`
 - Select a device and click `Next`
