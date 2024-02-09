@@ -5,7 +5,7 @@
 - [Overview](#overview)
 - [Learning Objectives](#learning-objectives)
 - [Setup And Tutorial](#setup-and-tutorial)
-- [Project Overview](#project-overiew)
+- [Project Overview](#project-overview)
 - [Submission Guidelines](#submission-guidelines)
 - [Design Inspiration](#design-inspiration)
 
