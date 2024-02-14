@@ -14,7 +14,18 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: const [
+              Padding(
+                padding: EdgeInsets.only(bottom: 24, top: 24),
+                child: CircleAvatar(
+                  radius: 40,
+                  child: Icon(
+                    Icons.person,
+                    size: 60,
+                  ),
+                ),
+              ),
               DetailsBlock(
                 label: "Email",
                 content: "fahad.a.s.algarni@gmail.com",
@@ -35,7 +46,7 @@ class MainApp extends StatelessWidget {
               SizedBox(height: 8),
               DetailsBlock(
                 label: "University",
-                content: " Imam Abdulrahmain bin Faisal University",
+                content: "Imam Abdulrahmain bin Faisal University",
                 icon: Icons.school,
               ),
             ],
