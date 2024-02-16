@@ -26,28 +26,37 @@ class MainApp extends StatelessWidget {
                   ),
                 ),
               ),
-              DetailsBlock(
-                label: "Email",
-                content: "fahad.a.s.algarni@gmail.com",
-                icon: Icons.email,
+              Padding(
+                padding: EdgeInsets.only(bottom: 12.0),
+                child: DetailsBlock(
+                  label: "Email",
+                  content: "fahad.a.s.algarni@gmail.com",
+                  icon: Icons.email,
+                ),
               ),
-              SizedBox(height: 8),
-              DetailsBlock(
-                label: "Phone Number",
-                content: "+966 55 897 5754",
-                icon: Icons.phone,
+              Padding(
+                padding: EdgeInsets.only(bottom: 12.0),
+                child: DetailsBlock(
+                  label: "Phone Number",
+                  content: "+966 55 897 5754",
+                  icon: Icons.phone,
+                ),
               ),
-              SizedBox(height: 8),
-              DetailsBlock(
-                label: "Residence",
-                content: "Dhahran, Eastern Province",
-                icon: Icons.home,
+              Padding(
+                padding: EdgeInsets.only(bottom: 12.0),
+                child: DetailsBlock(
+                  label: "Residence",
+                  content: "Dhahran, Eastern Province",
+                  icon: Icons.home,
+                ),
               ),
-              SizedBox(height: 8),
-              DetailsBlock(
-                label: "University",
-                content: "Imam Abdulrahmain bin Faisal University",
-                icon: Icons.school,
+              Padding(
+                padding: EdgeInsets.only(bottom: 12.0),
+                child: DetailsBlock(
+                  label: "University",
+                  content: "Imam Abdulrahman bin Faisal University",
+                  icon: Icons.school,
+                ),
               ),
             ],
           ),
