@@ -54,7 +54,7 @@ class DetailsBlock extends StatelessWidget {
           // "Content" stack, for text and icon
           child: Stack(
             // Default alignment on center-left
-            alignment: const Alignment(-1, 0),
+            alignment: AlignmentDirectional.centerStart,
             children: [
               // The content text
               Container(
