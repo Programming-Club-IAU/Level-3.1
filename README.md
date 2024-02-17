@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # Level 3.1: Introduction to Flutter
 
 # Table of Content
+=======
+# ![Alt text](/readme/banner.png)
+
+## Table of Content
+>>>>>>> 2c618630675f3fbb648516611ff950a54e941594
 
 - [Overview](#overview)
 - [Learning Objectives](#learning-objectives)
