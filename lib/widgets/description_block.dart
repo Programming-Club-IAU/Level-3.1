@@ -37,13 +37,10 @@ class DescriptionBlock extends StatelessWidget {
         decoration: roundedRectangle(
           labelFieldColor,
           outlineColor: labelFieldOutlineColor,
-          outlineThickness: 0.5,
           bloomIntensity: 32,
         ),
         // And the text itself
-        child: Text(
-          label,
-        ),
+        child: Text(label),
       ),
     ];
 

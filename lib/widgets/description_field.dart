@@ -45,6 +45,7 @@ class DescriptionField extends StatelessWidget {
       children: [
         // ================= The Label =================
         Padding(
+          // Padding below to leave space between label and description field
           padding: const EdgeInsets.only(bottom: 8.0),
           child: Container(
             // Text left to right + horizontal margin
@@ -69,8 +70,6 @@ class DescriptionField extends StatelessWidget {
           decoration: roundedRectangle(
             fieldColor,
             outlineColor: outlineColor,
-            roundness: 25,
-            outlineThickness: 0.5,
           ),
 
           // Description stack, for text and visual
@@ -87,15 +86,13 @@ class DescriptionField extends StatelessWidget {
                 ),
                 child: Text(
                   content,
-                  style: const TextStyle(
-                    fontSize: 14,
-                  ),
+                  style: const TextStyle(fontSize: 14),
                 ),
               ),
               // ========= Description Visual =========
               Container(
                 // aligned on right side
-                alignment: const Alignment(1, 0),
+                alignment: Alignment.centerRight,
                 padding: const EdgeInsets.only(right: 6),
                 // visualWidget is null if there's no visual set
                 child: visualWidget,
