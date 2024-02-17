@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import '../default_colors.dart';
 
 class DescriptionField extends StatelessWidget {
   const DescriptionField(
       {super.key,
       required this.label,
       required this.content,
-      this.borderColor = const Color.fromARGB(255, 75, 74, 83),
-      this.borderEnabled = true,
+      this.fieldColor = DefaultColors.fieldColor,
+      this.outlineColor = DefaultColors.fieldOutlineColor,
       this.icon,
+      this.iconColor,
       this.image});
 
   final String label;
   final String content;
-  final Color borderColor;
-  final bool borderEnabled;
-  // If icon is non-null, image will be null
+  final Color fieldColor;
+  final Color outlineColor;
+  // If icon is non-null, image will be discarded
   final IconData? icon;
+  final Color? iconColor;
   final Image? image;
 
   @override
@@ -24,66 +27,79 @@ class DescriptionField extends StatelessWidget {
     final Widget? visualWidget;
 
     if (icon != null) {
-      visualWidget = Icon(icon!, size: 40);
+      visualWidget = Icon(
+        icon!,
+        size: 40,
+        color: iconColor,
+      );
     } else if (image != null) {
       visualWidget = image;
     } else {
       visualWidget = null;
     }
 
-    // A column containing the label ontop, and the content block below it
+    // A column containing the label ontop, and the description field below it
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        // The Label SizedBox
-        SizedBox(
-          // 40 pixel wide margin
-          width: MediaQuery.of(context).size.width - 40,
+        // ================= The Label =================
+        Container(
+          // Text left to right + horizontal margin
+          alignment: Alignment.centerLeft,
+          margin: const EdgeInsetsDirectional.symmetric(horizontal: 20),
           // The Label Text
           child: Text(
             label,
-            textAlign: TextAlign.left,
             style: const TextStyle(fontSize: 14),
           ),
         ),
-        // The Content Container
+
+        // ======== The Description field ========
+        // A container that has a Stack widget as it's child
+        // The stack contains the text description, and the visual widget
         Container(
-          width: MediaQuery.of(context).size.width - 40,
+          // Horizontal margin + internal padding
+          margin: const EdgeInsetsDirectional.symmetric(horizontal: 10),
           padding: const EdgeInsets.all(10),
           // The actual field decoration
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 55, 54, 61),
+            // Set the color
+            color: fieldColor,
+            // Give it a rounded rectangle look
             shape: BoxShape.rectangle,
             borderRadius: const BorderRadius.all(Radius.circular(25.0)),
+            // Give it a thin, colored border
             border: Border.all(
-              color: borderColor,
-              style: (borderEnabled) ? BorderStyle.solid : BorderStyle.none,
-              width: 0.4,
+              color: outlineColor,
+              style: BorderStyle.solid,
+              width: 0.5,
             ),
           ),
-          // "Content" stack, for text and icon
+          // Description stack, for text and visual
           child: Stack(
             // Default alignment on center-left
-            alignment: AlignmentDirectional.centerStart,
+            alignment: Alignment.centerLeft,
             children: [
-              // The content text
+              // ========= Description Text =========
               Container(
-                margin: const EdgeInsets.only(
-                  right:
-                      60, // Expand margin on right side to leave space for the icon
+                margin: EdgeInsets.only(
+                  // If visual widget is non-null, expand margin on right side to leave space for the widget
+                  right: (visualWidget != null) ? 60 : 5,
                   left: 5,
                 ),
-                child: Text(content,
-                    style: const TextStyle(
-                      fontSize: 14,
-                    )),
+                child: Text(
+                  content,
+                  style: const TextStyle(
+                    fontSize: 14,
+                  ),
+                ),
               ),
-              // The content icon
+              // ========= Description Visual =========
               Container(
                 // aligned on right side
                 alignment: const Alignment(1, 0),
                 padding: const EdgeInsets.only(right: 6),
-                // child null if there is no icon set
+                // visualWidget is null if there's no visual set
                 child: visualWidget,
               ),
             ],
