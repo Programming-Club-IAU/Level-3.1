@@ -1,60 +1,81 @@
 import 'package:flutter/material.dart';
+import '../default_colors.dart';
+import '../utils.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({
     super.key,
     required this.name,
-    this.cardColor = Colors.amber,
-    this.image,
+    required this.profilePicture,
+    this.cardColor = DefaultColors.profileCardColor,
   });
 
   final String name;
   final Color cardColor;
-  final Image? image;
+  final ImageProvider profilePicture;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 350,
-      padding: const EdgeInsets.all(25),
-      decoration: BoxDecoration(
-        color: cardColor,
-        // ===== Round Rectangle Look =====
-        shape: BoxShape.rectangle,
-        borderRadius: const BorderRadius.all(Radius.circular(25)),
-        // ===== Border and Shadow ======
-        border: Border.all(width: 0.5),
-        boxShadow: [
-          BoxShadow(
-            // Give shadow same color as card to get bloom-like effect
-            color: cardColor,
-            blurRadius: 8,
-            offset: const Offset(1.5, 1.5),
+    return Stack(
+      clipBehavior: Clip.none,
+      alignment: Alignment.center,
+      children: [
+        // The big rectangle
+        Container(
+          width: 350,
+          height: 150,
+          padding: const EdgeInsets.all(25),
+          decoration: roundedRectangle(
+            cardColor,
+            bloomIntensity: 40,
+            shadow: false,
           ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const CircleAvatar(
-            radius: 40,
-            child: Icon(
-              Icons.person,
-              size: 60,
+        ),
+
+        // ======= Profile Picture =======
+        Positioned(
+          // positioned at top left
+          top: -12.5,
+          left: -2.5,
+
+          // Avatar wrapped in PhysicalModel to cast shadow
+          child: PhysicalModel(
+            color: Colors.black,
+            shape: BoxShape.circle,
+            elevation: 16,
+            child: CircleAvatar(
+              radius: 60,
+              foregroundImage: profilePicture,
             ),
           ),
-          Container(
-            margin: const EdgeInsetsDirectional.only(top: 16),
-            padding: const EdgeInsets.all(8),
-            decoration: const BoxDecoration(
+        ),
+
+        // The name field
+        Positioned(
+          top: 10,
+          right: 50,
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Colors.white,
               shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.all(Radius.circular(25)),
-              color: Color.fromARGB(178, 41, 36, 47),
+              borderRadius: const BorderRadius.all(Radius.circular(40)),
+              border: Border.all(width: 0.5),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.white,
+                  blurRadius: 20,
+                )
+              ],
             ),
-            child: Text(name),
+            child: Text(
+              name,
+              style: const TextStyle(color: Colors.black),
+              textAlign: TextAlign.center,
+            ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

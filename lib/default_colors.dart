@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DefaultColors {
+  static const Color profileCardColor = Color.fromARGB(255, 159, 141, 238);
+
   static const Color fieldColor = Color.fromARGB(255, 47, 45, 56);
   static const Color fieldOutlineColor = Color.fromARGB(255, 75, 74, 83);
 

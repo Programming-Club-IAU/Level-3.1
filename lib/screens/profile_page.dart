@@ -23,7 +23,10 @@ class ProfilePage extends StatelessWidget {
             const UnconstrainedBox(
               child: Padding(
                 padding: EdgeInsets.only(top: 20, bottom: 40),
-                child: ProfileCard(name: "Fahad Alqarni"),
+                child: ProfileCard(
+                  name: "Fahad Alqarni",
+                  profilePicture: AssetImage("assets/profile_pic.jpg"),
+                ),
               ),
             ),
 
@@ -60,7 +63,7 @@ class ProfilePage extends StatelessWidget {
                     label: "X (Twitter)",
                     content: "@AlqarniDev",
                     image: Image(
-                      image: AssetImage('assets/x_logo.png'),
+                      image: AssetImage('assets/logos/x_logo.png'),
                       height: 40,
                     ),
                   ),
@@ -68,7 +71,7 @@ class ProfilePage extends StatelessWidget {
                     label: "Github",
                     content: "fahadasq",
                     image: Image(
-                      image: AssetImage("assets/github_logo.png"),
+                      image: AssetImage("assets/logos/github_logo.png"),
                       color: Colors.white,
                       height: 40,
                     ),

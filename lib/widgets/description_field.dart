@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../default_colors.dart';
+import '../utils.dart';
 
 class DescriptionField extends StatelessWidget {
   const DescriptionField(
@@ -62,18 +63,11 @@ class DescriptionField extends StatelessWidget {
           margin: const EdgeInsetsDirectional.symmetric(horizontal: 10),
           padding: const EdgeInsets.all(10),
           // The actual field decoration
-          decoration: BoxDecoration(
-            // Set the color
-            color: fieldColor,
-            // Give it a rounded rectangle look
-            shape: BoxShape.rectangle,
-            borderRadius: const BorderRadius.all(Radius.circular(25.0)),
-            // Give it a thin, colored border
-            border: Border.all(
-              color: outlineColor,
-              style: BorderStyle.solid,
-              width: 0.5,
-            ),
+          decoration: roundedRectangle(
+            fieldColor,
+            outlineColor: outlineColor,
+            roundness: 25,
+            outlineThickness: 0.5,
           ),
           // Description stack, for text and visual
           child: Stack(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'description_field.dart';
 import '../default_colors.dart';
+import '../utils.dart';
 
 class DescriptionBlock extends StatelessWidget {
   const DescriptionBlock({
@@ -33,15 +34,11 @@ class DescriptionBlock extends StatelessWidget {
         // Some internal padding
         padding: const EdgeInsets.all(12),
         // A sorta text bubble for the label
-        decoration: BoxDecoration(
-          color: labelFieldColor,
-          border: Border.all(
-            width: 0.5,
-            color: labelFieldOutlineColor,
-          ),
-          borderRadius: const BorderRadius.all(
-            Radius.circular(25),
-          ),
+        decoration: roundedRectangle(
+          labelFieldColor,
+          outlineColor: labelFieldOutlineColor,
+          outlineThickness: 0.5,
+          roundness: 25,
         ),
         // And the text itself
         child: Text(
@@ -50,7 +47,7 @@ class DescriptionBlock extends StatelessWidget {
       ),
     ];
 
-    // Essentially wrap each description widget with padding on the bottom side
+    // Essentially wrap each description widget with padding on the bottom side to leave space in the column
     for (int i = 0; i < descriptions.length; i++) {
       // Create the padding widget, with the description field as its child
       Widget widget = Padding(
