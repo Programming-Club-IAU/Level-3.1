@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:profile_page/screens/profile_page.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const ProfileApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class ProfileApp extends StatelessWidget {
+  const ProfileApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'Profile Page',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        appBar: AppBar(
+          title: const Text('Profile Page'),
+          backgroundColor: Color.fromARGB(255, 235, 172, 193), // Set the app bar color to pink
         ),
+        body: const ProfilePage(),
       ),
     );
   }
