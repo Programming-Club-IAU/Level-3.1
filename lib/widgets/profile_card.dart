@@ -55,7 +55,11 @@ class ProfileCard extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.all(6),
-            decoration: roundedRectangle(Colors.white, roundness: 5),
+            decoration: roundedRectangle(
+              Colors.white,
+              roundness: 5,
+              bloomIntensity: 16,
+            ),
             child: Text(
               name,
               style: const TextStyle(color: Color.fromARGB(255, 6, 6, 6)),

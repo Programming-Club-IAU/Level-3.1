@@ -44,14 +44,17 @@ class DescriptionField extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         // ================= The Label =================
-        Container(
-          // Text left to right + horizontal margin
-          alignment: Alignment.centerLeft,
-          margin: const EdgeInsetsDirectional.symmetric(horizontal: 20),
-          // The Label Text
-          child: Text(
-            label,
-            style: const TextStyle(fontSize: 14),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Container(
+            // Text left to right + horizontal margin
+            alignment: Alignment.centerLeft,
+            margin: const EdgeInsetsDirectional.symmetric(horizontal: 20),
+            // The Label Text
+            child: Text(
+              label,
+              style: const TextStyle(fontSize: 14),
+            ),
           ),
         ),
 
@@ -69,6 +72,7 @@ class DescriptionField extends StatelessWidget {
             roundness: 25,
             outlineThickness: 0.5,
           ),
+
           // Description stack, for text and visual
           child: Stack(
             // Default alignment on center-left

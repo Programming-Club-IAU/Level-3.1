@@ -17,16 +17,15 @@ class ProfilePage extends StatelessWidget {
       body: Center(
         child: ListView(
           physics: const BouncingScrollPhysics(),
-          // All the items in the list are wrapped with a Padding widget to create space between the items
+          addAutomaticKeepAlives: false,
+          // All the items in the list are wrapped with a Padding widget to create space between the items, that is the "blockPadding"
           children: [
             // Wrapped padding with UnconstrainedBox widget because of flutter weirdness wrt ListViews
-            const UnconstrainedBox(
-              child: Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 40),
-                child: ProfileCard(
-                  name: "Fahad Al-Qarni",
-                  profilePicture: AssetImage("assets/profile_pic.jpg"),
-                ),
+            const Padding(
+              padding: EdgeInsets.only(top: 20, bottom: 40),
+              child: ProfileCard(
+                name: "Fahad Al-Qarni",
+                profilePicture: AssetImage("assets/profile_pic.jpg"),
               ),
             ),
 

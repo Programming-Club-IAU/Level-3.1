@@ -12,7 +12,7 @@ class DescriptionBlock extends StatelessWidget {
     this.outlineColor = DefaultColors.blockOutlineColor,
     this.labelFieldColor = DefaultColors.fieldColor,
     this.labelFieldOutlineColor = DefaultColors.fieldOutlineColor,
-    this.fieldPadding = 16,
+    this.fieldPadding = 24,
   });
 
   final String label;
@@ -38,7 +38,7 @@ class DescriptionBlock extends StatelessWidget {
           labelFieldColor,
           outlineColor: labelFieldOutlineColor,
           outlineThickness: 0.5,
-          roundness: 25,
+          bloomIntensity: 32,
         ),
         // And the text itself
         child: Text(
@@ -47,7 +47,7 @@ class DescriptionBlock extends StatelessWidget {
       ),
     ];
 
-    // Essentially wrap each description widget with padding on the bottom side to leave space in the column
+    // Essentially wrap each description widget with padding on the bottom side to leave space in the column for the next item
     for (int i = 0; i < descriptions.length; i++) {
       // Create the padding widget, with the description field as its child
       Widget widget = Padding(
@@ -62,13 +62,10 @@ class DescriptionBlock extends StatelessWidget {
       // Horizontal Margin
       margin: const EdgeInsetsDirectional.symmetric(horizontal: 10),
       // The actual "Block" itself
-      decoration: BoxDecoration(
-        color: blockColor,
-        borderRadius: const BorderRadius.all(Radius.circular(25)),
-        border: Border.all(
-          width: 1.25,
-          color: outlineColor,
-        ),
+      decoration: roundedRectangle(
+        blockColor,
+        outlineColor: outlineColor,
+        outlineThickness: 1.25,
       ),
 
       child: Column(
