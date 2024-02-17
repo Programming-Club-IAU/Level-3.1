@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/details_block.dart';
+import '../widgets/description_field.dart';
 import '../widgets/profile_card.dart';
+import '../widgets/description_block.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -12,62 +13,73 @@ class ProfilePage extends StatelessWidget {
         child: ListView(
           physics: const BouncingScrollPhysics(),
           children: const [
-            Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 20, bottom: 40),
-                  child: ProfileCard(),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 12.0),
-              child: DetailsBlock(
-                label: "Email",
-                content: "fahad.a.s.algarni@gmail.com",
-                icon: Icons.email,
+            UnconstrainedBox(
+              child: Padding(
+                padding: EdgeInsets.only(top: 20, bottom: 40),
+                child: ProfileCard(),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 12.0),
-              child: DetailsBlock(
-                label: "Phone Number",
-                content: "+966 55 897 5754",
-                icon: Icons.phone,
+              padding: EdgeInsets.only(bottom: 16),
+              child: DescriptionBlock(
+                label: "Personal Details",
+                descriptions: [
+                  DescriptionField(
+                    label: "Email",
+                    content: "fahad.a.s.algarni@gmail.com",
+                    icon: Icons.email,
+                  ),
+                  DescriptionField(
+                    label: "Birthday",
+                    content: "July 31st",
+                    icon: Icons.celebration,
+                  ),
+                ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 12.0),
-              child: DetailsBlock(
-                label: "Residence",
-                content: "Dhahran, Eastern Province",
-                icon: Icons.home,
+              padding: EdgeInsets.only(bottom: 16),
+              child: DescriptionBlock(
+                label: "Social Media",
+                descriptions: [
+                  DescriptionField(
+                    label: "X (Twitter)",
+                    content: "@AlqarniDev",
+                    image: Image(
+                      image: AssetImage('assets/x_logo.png'),
+                      height: 40,
+                    ),
+                  ),
+                  DescriptionField(
+                    label: "Github",
+                    content: "fahadasq",
+                    image: Image(
+                      image: AssetImage("assets/github_logo.png"),
+                      color: Colors.white,
+                      height: 40,
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 12.0),
-              child: DetailsBlock(
-                label: "University",
-                content: "Imam Abdulrahman bin Faisal University",
-                icon: Icons.school,
+              padding: EdgeInsets.only(bottom: 16),
+              child: DescriptionBlock(
+                label: "About Me",
+                descriptions: [
+                  DescriptionField(
+                    label: "University",
+                    content: "Imam Abdulrahman bin Faisal University",
+                    icon: Icons.school,
+                  ),
+                  DescriptionField(
+                    label: "Hobby",
+                    content: "Gaming",
+                    icon: Icons.videogame_asset,
+                  )
+                ],
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 12.0),
-              child: DetailsBlock(
-                label: "Passion",
-                content: "Programming",
-                icon: Icons.laptop,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 12.0),
-              child: DetailsBlock(
-                label: "Hobby",
-                content: "Gaming",
-                icon: Icons.videogame_asset,
-              ),
-            ),
+            )
           ],
         ),
       ),

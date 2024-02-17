@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
 
-// A widget that returns a "block" of details, with a label above it
-
-class DetailsBlock extends StatelessWidget {
-  const DetailsBlock(
+class DescriptionField extends StatelessWidget {
+  const DescriptionField(
       {super.key,
       required this.label,
       required this.content,
-      this.blockColor = Colors.white,
-      this.borderColor = Colors.black,
+      this.borderColor = const Color.fromARGB(255, 75, 74, 83),
       this.borderEnabled = true,
-      this.icon});
+      this.icon,
+      this.image});
 
   final String label;
   final String content;
-  final Color blockColor;
   final Color borderColor;
   final bool borderEnabled;
+  // If icon is non-null, image will be null
   final IconData? icon;
+  final Image? image;
 
   @override
   Widget build(BuildContext context) {
+    // Determine whether to display icon, image, or leave visual blank
+    final Widget? visualWidget;
+
+    if (icon != null) {
+      visualWidget = Icon(icon!, size: 40);
+    } else if (image != null) {
+      visualWidget = image;
+    } else {
+      visualWidget = null;
+    }
+
     // A column containing the label ontop, and the content block below it
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -40,15 +50,15 @@ class DetailsBlock extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width - 40,
           padding: const EdgeInsets.all(10),
-          // The actual "Block" decoration
+          // The actual field decoration
           decoration: BoxDecoration(
-            color: blockColor,
+            color: const Color.fromARGB(255, 55, 54, 61),
             shape: BoxShape.rectangle,
             borderRadius: const BorderRadius.all(Radius.circular(25.0)),
             border: Border.all(
               color: borderColor,
               style: (borderEnabled) ? BorderStyle.solid : BorderStyle.none,
-              width: 2,
+              width: 0.4,
             ),
           ),
           // "Content" stack, for text and icon
@@ -74,12 +84,7 @@ class DetailsBlock extends StatelessWidget {
                 alignment: const Alignment(1, 0),
                 padding: const EdgeInsets.only(right: 6),
                 // child null if there is no icon set
-                child: (icon != null)
-                    ? Icon(
-                        icon!,
-                        size: 40,
-                      )
-                    : null,
+                child: visualWidget,
               ),
             ],
           ),

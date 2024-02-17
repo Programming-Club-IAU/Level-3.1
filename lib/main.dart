@@ -10,6 +10,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: ProfilePage());
+    return MaterialApp(
+      theme: ThemeData.dark(),
+      home: const ProfilePage(),
+      title: "Fahad's Profile",
+    );
   }
 }

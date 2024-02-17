@@ -6,7 +6,7 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width - 100,
+      width: 325,
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
           color: Colors.amber,
@@ -15,7 +15,7 @@ class ProfileCard extends StatelessWidget {
           border: Border.all(width: 0.5),
           boxShadow: const [
             BoxShadow(
-              color: Colors.black,
+              color: Colors.amber,
               blurRadius: 8,
               offset: Offset(1.5, 1.5),
             ),
