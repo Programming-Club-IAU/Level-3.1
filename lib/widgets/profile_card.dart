@@ -34,9 +34,8 @@ class ProfileCard extends StatelessWidget {
 
         // ======= Profile Picture =======
         Positioned(
-          // positioned at top left
-          top: -12.5,
-          left: -2.5,
+          // positioned at top
+          top: -15,
 
           // Avatar wrapped in PhysicalModel to cast shadow
           child: PhysicalModel(
@@ -44,7 +43,7 @@ class ProfileCard extends StatelessWidget {
             shape: BoxShape.circle,
             elevation: 16,
             child: CircleAvatar(
-              radius: 60,
+              radius: 65,
               foregroundImage: profilePicture,
             ),
           ),
@@ -52,25 +51,14 @@ class ProfileCard extends StatelessWidget {
 
         // The name field
         Positioned(
-          top: 10,
-          right: 50,
+          bottom: -15,
           child: Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.rectangle,
-              borderRadius: const BorderRadius.all(Radius.circular(40)),
-              border: Border.all(width: 0.5),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.white,
-                  blurRadius: 20,
-                )
-              ],
-            ),
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(6),
+            decoration: roundedRectangle(Colors.white, roundness: 5),
             child: Text(
               name,
-              style: const TextStyle(color: Colors.black),
+              style: const TextStyle(color: Color.fromARGB(255, 6, 6, 6)),
               textAlign: TextAlign.center,
             ),
           ),

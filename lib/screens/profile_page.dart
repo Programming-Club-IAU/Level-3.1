@@ -24,7 +24,7 @@ class ProfilePage extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(top: 20, bottom: 40),
                 child: ProfileCard(
-                  name: "Fahad Alqarni",
+                  name: "Fahad Al-Qarni",
                   profilePicture: AssetImage("assets/profile_pic.jpg"),
                 ),
               ),
