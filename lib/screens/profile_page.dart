@@ -46,6 +46,11 @@ class ProfilePage extends StatelessWidget {
                     icon: Icons.location_on,
                   ),
                   DescriptionField(
+                    label: "University",
+                    content: "Imam Abdulrahman bin Faisal University",
+                    icon: Icons.school,
+                  ),
+                  DescriptionField(
                     label: "Birthday",
                     content: "July 31st",
                     icon: Icons.celebration,
@@ -86,15 +91,26 @@ class ProfilePage extends StatelessWidget {
                 label: "About Me",
                 descriptions: [
                   DescriptionField(
-                    label: "University",
-                    content: "Imam Abdulrahman bin Faisal University",
-                    icon: Icons.school,
-                  ),
-                  DescriptionField(
                     label: "Hobby",
                     content: "Gaming",
                     icon: Icons.videogame_asset,
                   ),
+                  DescriptionField(
+                    label: "What do I do?",
+                    content:
+                        "Currently, I am a student at IAU studying business administration.",
+                  ),
+                  DescriptionField(
+                    label: "What type of games do I like?",
+                    content:
+                        "Alot! I like many games, there are only a few types of games I don't like. "
+                        "Such as long arduous RPGs, or certain types of multiplayer games.\nMost of all, I love singleplayer games, especially (but not exclusively!) action games.",
+                  ),
+                  DescriptionField(
+                      label: "What do I love to do?",
+                      content:
+                          "Program! I love programming, and have been a self-taught programmer for a long time.\n"
+                          "I especially love graphics programming and games programming.")
                 ],
               ),
             )

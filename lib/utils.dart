@@ -16,6 +16,7 @@ BoxDecoration roundedRectangle(Color color,
     BoxShadow bloom = BoxShadow(
       color: color,
       blurRadius: bloomIntensity,
+      offset: const Offset(0, 2),
     );
 
     shadows.add(bloom);
