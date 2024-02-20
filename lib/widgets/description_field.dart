@@ -91,7 +91,6 @@ class DescriptionField extends StatelessWidget {
               ),
               // ========= Description Visual =========
               Container(
-                // aligned on right side
                 alignment: Alignment.centerRight,
                 padding: const EdgeInsets.only(right: 6),
                 // visualWidget is null if there's no visual set

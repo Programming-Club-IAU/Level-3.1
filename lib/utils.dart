@@ -4,10 +4,10 @@ BoxDecoration roundedRectangle(Color color,
     {Color outlineColor = Colors.black,
     double roundness = 25,
     double outlineThickness = 0.5,
-    bool shadow = true,
+    bool shadow = false,
     Color shadowColor = const Color.fromARGB(60, 0, 0, 0),
     double shadowIntensity = 1,
-    bool bloom = true,
+    bool bloom = false,
     double bloomIntensity = 10}) {
   // Initialize BoxShadows list with empty array
   // Later add bloom and shadow BoxShadows to the list, if they're enabled

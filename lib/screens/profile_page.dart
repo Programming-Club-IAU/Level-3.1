@@ -17,7 +17,7 @@ class ProfilePage extends StatelessWidget {
       body: Center(
         child: ListView(
           physics: const BouncingScrollPhysics(),
-          addAutomaticKeepAlives: false,
+          addAutomaticKeepAlives: true,
           // All the items in the list are wrapped with a Padding widget to create space between the items, that is the "blockPadding"
           children: [
             // Wrapped padding with UnconstrainedBox widget because of flutter weirdness wrt ListViews
